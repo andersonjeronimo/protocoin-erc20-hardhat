@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const protocoin = await ethers.deployContract("ProtoCoin", [], {});
+  const protocoin = await ethers.deployContract("ProtoCoin");
   await protocoin.waitForDeployment();
   const address = await protocoin.getAddress();
 

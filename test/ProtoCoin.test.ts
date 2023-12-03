@@ -72,11 +72,9 @@ describe("Protocoin Tests", function () {
 
     const ownerBalance = await protocoin.balanceOf(owner.address);
     const otherAccountBalance = await protocoin.balanceOf(otherAccount.address);
-
     await protocoin.approve(otherAccount.address, 10n);
 
     const instance = protocoin.connect(otherAccount);
-
     await instance.transferFrom(owner.address, otherAccount.address, 5n);
 
     const allowance = await protocoin.allowance(owner.address, otherAccount.address);
@@ -104,11 +102,4 @@ describe("Protocoin Tests", function () {
     await expect(instance.transferFrom(owner.address, otherAccount.address, 1n))
       .to.be.revertedWith("Insufficient allowance");
   });
-
-
-
-  //"Insufficient allowance"
-
-
-
 });
